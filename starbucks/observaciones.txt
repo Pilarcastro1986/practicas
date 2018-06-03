@@ -1,0 +1,64 @@
+
+
+Cuando instalo un modulo que sea solo utilizado para el desarrolador osea, no impide el desarrollo del proyecto,
+uso -dev si es algo que va a pasar a produccion es simplemente --save.
+ej: nodemon --save-dev / express --save
+
+***************************************************
+
+bodyParser sirve para poder mandar respuestas en formato json.
+Agarra el body, que es json y lo transforma en un objeto javascript
+
+.use(bodyParser.urlencoded({extended: true})) 
+http no fue pensando para recibir jsons, entonces cuando yo hago un post 
+el browser me crea automaticamente una clave-valor para cada input (clave el el <name> y valor 'Pilar') cuando aparecio json, se quiso implementar
+entonces con extended true, puedo mandar request con json, si le pongo false el browser sigue esperando clave-valor.
+parsea el request. Devuele una funcion. 
+
+.use(bodyParser.json()) --> parseo el body.
+
+***************************************************
+
+.on(server) .use(express) ===> Llamadas encadenadas.
+
+El metodo de abajo esta haciendo invocado al valor de retorno de la funcion de arriba.
+En server.js, el listen no esta aplicado al http, esta aplicado a lo que devuele el createServer, y es importante el orden.
+En cambio en express, todos los use devuelven lo mismo asique el orden no importa.
+
+--server.js---
+
+http    
+    .createServer()
+    .on('request', app)
+    .on('error' , function(error){
+        switch (error.code){
+            case 'EADDRINUSE':
+            console.log('puerto en uso')
+            break;
+            case 'EACCES':
+            console.log('error de permisos')
+            break;
+            default:
+            throw error;
+
+        }
+    })
+    .listen(port, function(){
+        console.log('escuchando!')
+})
+
+
+***************************************************
+
+Metodos & Funciones
+
+La diferencia entre un metodo y una funcion es que el metodo es una funcion que esta adentro de un objeto.
+El metodo siempre siempre va a estar adentro de un objeto, la funcion siempre esta por afuera, recibe todo por parametros 
+y el metodo puede acceder a los atributos del objeto mediante this.
+
+.use(function(error, req, res, next){
+    console.log('se produjo un error');
+})
+
+.use es un metodo porque esta adentro de un obejto llamado app.
+recibe una funcion, esa funcion es un middleweare, que a su vez tiene parametros.
