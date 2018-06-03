@@ -1,4 +1,3 @@
-// el primer numero corresponde al id del alumno, el segundo numero corresponde al id del curso
 1,1
 1,2
 3,2

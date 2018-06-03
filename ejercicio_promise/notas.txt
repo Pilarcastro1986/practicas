@@ -6,8 +6,8 @@ Inscripciones.txt
 
 Alumnos.txt va a ser asi:
 
-1,Pilar
-2,Wanda
+1,Juan
+2,Matias
 3,Julieta
 
 o sea en cada linea hay un numero distinto (un id) luego una coma y despues un nombre
@@ -27,10 +27,13 @@ Inscripciones.txt es:
 3,2
 2,3
 
-Cada linea de Inscripciones.txt tiene dos numeros separados por comas, el primer numero corresponde al id del alumno, el segundo numero corresponde al id del curso.
-O sea: 3,2 significa que el alumno 3 se inscribio en curso 2, el alumno 3 es Julieta, el curso 2 es Java entonces eso significa que Julieta se inscribio en el curso de Java.
+Cada linea de Inscripciones.txt tiene dos numeros separados por comas, el primer numero corresponde al id del alumno, 
+el segundo numero corresponde al id del curso.
+O sea: 3,2 significa que el alumno 3 se inscribio en curso 2, el alumno 3 es Julieta, 
+el curso 2 es Java entonces eso significa que Julieta se inscribio en el curso de Java.
 
-El ejercicio es, crear en node un programita que cuando ejecutes node programita.js lea esos tres archivos e imprima por pantalla el listado de inscripciones, o sea en este caso deberia imprimir:
+El ejercicio es, crear en node un programita que cuando ejecutes node programita.js lea esos tres archivos 
+e imprima por pantalla el listado de inscripciones, o sea en este caso deberia imprimir:
 
 Pilar esta inscripta en PHP y JAVA
 Wanda esta inscripta en Javascript
@@ -38,21 +41,27 @@ Julieta esta inscripta en Java
 
 No lo hagas web, que imprima directo por consola.
 
-Para hacer eso tenes que usar el modulo fs de node, primero hacelo con callbacks para ver como te queda, te va a quedar un callback hell que no vas a poder evitar:
+Para hacer eso tenes que usar el modulo fs de node, primero hacelo con 
+callbacks para ver como te queda, te va a quedar un callback hell que no vas a poder evitar:
 
 https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback
 
-Y para no hacer trampa usando variables globales vamos a poner una regla extra: tenes que usar 'use strict' y tenes prohibido usar var y let, solamente podes usar const. Con esta restriccion te va a ser imposible crear variables globales.
+Y para no hacer trampa usando variables globales vamos a poner una regla extra: tenes que usar 
+'use strict' y tenes prohibido usar var y let, solamente podes usar const. 
+Con esta restriccion te va a ser imposible crear variables globales.
 
-Si no te sale no te preocupes, hacelo con promesas y te va a salir. Si usas la version 10 de node entonces vas a tener un modulo fs que soporta promesas:
+Si no te sale no te preocupes, hacelo con promesas y te va a salir. 
+Si usas la version 10 de node entonces vas a tener un modulo fs que soporta promesas:
 
 https://nodejs.org/api/fs.html#fs_filehandle_readfile_options
 
-Si tenes otra version no importa, podes usar promisify para transformar cualquier funcion que reciba un callback en una funcion que retorne promesas:
+Si tenes otra version no importa, podes usar promisify para transformar cualquier funcion que 
+reciba un callback en una funcion que retorne promesas:
 
 https://nodejs.org/api/util.html#util_util_promisify_original
 
-Te recomiendo esta segunda opcion con el promisify asi de paso aprendes la tecnica de como promesificar otras cosas.
+Te recomiendo esta segunda opcion con el promisify asi de paso aprendes la tecnica 
+de como promesificar otras cosas.
 
 Esto te puede llevar un fin de semana hacerlo, pero si le dedicas tiempo tal vez lo puedas terminar antes. 
 
@@ -68,4 +77,5 @@ https://nodejs.org/api/debugger.html
 
 Una vez que termines con las promesas hace la version con async/await y compara ventajas y desventajas de las tres maneras.
 
-Por ahora te dejo usar for pero una vez que lo termines tu tarea va a ser eliminar cualquier for que hayas escrito reemplazandolo por map, filter y/o reduce!
+Por ahora te dejo usar for pero una vez que lo termines tu tarea va a ser eliminar cualquier for que hayas 
+escrito reemplazandolo por map, filter y/o reduce!
